@@ -5,7 +5,6 @@ import "./task.css";
 const Task = ({ task, fetchTasks }) => {
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState(task.title);
-  const [body, setBody] = useState(task.body);
 /*
   const handleDelete = async () => {
     const token = localStorage.getItem('token');
@@ -55,18 +54,8 @@ const Task = ({ task, fetchTasks }) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <br/>
-        <textarea
-        Type="text"
-         row="30" col="5"
-         value={body}
-         onChange={(e) =>setBody(e.target.value)}
-         >
-
-        </textarea>
       ) : (
         <span className="span1">{task.title}</span>
-        <span className="span2">{task.body}</span>
       )}
       <button className="btn1" onClick={handleDelete}>Supprimer</button>
       {editing ? (
