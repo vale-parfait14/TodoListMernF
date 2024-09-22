@@ -40,7 +40,7 @@ const Task = ({ task, fetchTasks }) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ title, body, completed: task.completed }),
+      body: JSON.stringify({ title, completed: task.completed }),
     });
     setEditing(false);
     fetchTasks();
@@ -53,15 +53,17 @@ const Task = ({ task, fetchTasks }) => {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className='ipt-tasks'
         />
+        
       ) : (
-        <span className="span1">{task.title}</span>
+        <span className="span-tasks">{task.title}</span>
       )}
-      <button className="btn1" onClick={handleDelete}>Supprimer</button>
+      <button className="btn1-tasks" onClick={handleDelete}>Supprimer</button>
       {editing ? (
-        <button className="btn2" onClick={handleUpdate}>Sauvegarder</button>
+        <button className="btn2-tasks" onClick={handleUpdate}>Sauvegarder</button>
       ) : (
-        <button className="btn3" onClick={() => setEditing(true)}>Modifier</button>
+        <button className="btn3-tasks" onClick={() => setEditing(true)}>Modifier</button>
       )}
     </li>
   );
